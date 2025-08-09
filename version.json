@@ -1,4 +1,5 @@
 {
-  "version": "1.1.0",
-  "release_url": "https://github.com/abukaha2025/app-taqwa/releases/tag/v1.1.0"
+  "version": "1.0.1",
+  "releaseNotes": "Memperbarui modul Manajemen Kurban dengan fitur ringkasan total, statistik, dan cetak laporan PDF.",
+  "releaseUrl": "https://github.com/abukaha2025/app-taqwa-update/releases/tag/v1.0.1"
 }
