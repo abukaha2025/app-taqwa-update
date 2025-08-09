@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Manajemen Kurban - Masjid Raya At-Taqwa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+    <link rel="stylesheet" href="style-taqwa-settings.css">
+    <link rel="stylesheet" href="style-taqwa-qurban.css" />
+</head>
+<body class="theme-default">
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo-taqwa.png" alt="Logo Masjid Al taqwa" class="sidebar-logo">
+                <h2 class="sidebar-title">At-Taqwa</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="input.html" class="nav-item">
+                            <i class="fas fa-plus-circle nav-icon"></i>
+                            <span class="nav-text">Input Jadwal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="khotib-taqwa.html" class="nav-item">
+                            <i class="fas fa-users nav-icon"></i>
+                            <span class="nav-text">Jadwal Khutbah</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="statistik.html" class="nav-item">
+                            <i class="fas fa-chart-line nav-icon"></i>
+                            <span class="nav-text">Statistik</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jadwal-sholat.html" class="nav-item">
+                            <i class="fas fa-mosque nav-icon"></i>
+                            <span class="nav-text">Jadwal Sholat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kalender.html" class="nav-item">
+                            <i class="fas fa-calendar-alt nav-icon"></i>
+                            <span class="nav-text">Kalender Kegiatan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="qurban.html" class="nav-item active">
+                            <i class="fas fa-cow nav-icon"></i>
+                            <span class="nav-text">Manajemen Kurban</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-item">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">Tentang</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-content-wrapper">
+            <header class="main-header">
+                <button id="sidebarToggleBtn" class="icon-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="header-title">Manajemen Kurban</h1>
+                <div class="header-actions">
+                    <button id="logoutButtonHeader" class="btn btn-danger">Logout</button>
+                </div>
+            </header>
+
+            <section class="content-section">
+                <div class="form-card">
+                    <form id="qurbanForm">
+                        <div class="form-group">
+                            <label for="tanggal">Tanggal Kurban</label>
+                            <input type="date" id="tanggal" name="tanggal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenisHewan">Jenis Hewan</label>
+                            <select id="jenisHewan" name="jenisHewan" required>
+                                <option value="Sapi">Sapi</option>
+                                <option value="Kambing">Kambing</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="beratTotal">Berat Hewan (kg)</label>
+                            <input type="number" id="beratTotal" name="beratTotal" min="1" step="0.1" required>
+                        </div>
+                        <div class="form-group" id="jumlahPekurbanGroup">
+                            <label for="jumlahPekurban">Jumlah Pekurban (1-7 orang)</label>
+                            <input type="number" id="jumlahPekurban" name="jumlahPekurban" min="1" max="7" value="7" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jumlahWarga">Jumlah Warga Penerima</label>
+                            <input type="number" id="jumlahWarga" name="jumlahWarga" min="1" value="100" required>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary" id="saveButton">Simpan Data</button>
+                            <button type="button" class="btn btn-secondary" onclick="resetForm()">Batal/Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card-grid">
+                    <div class="card" id="totalSummaryCard">
+                        <h2 class="card-title">Ringkasan Total Kurban</h2>
+                        <div id="summaryResults" class="perhitungan-results">
+                            <p class="placeholder-text">Belum ada data kurban untuk ditampilkan.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2 class="card-title">Perhitungan Kurban</h2>
+                        <div id="perhitunganResults" class="perhitungan-results">
+                            <p class="placeholder-text">Isi formulir untuk melihat hasil perhitungan.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2 class="card-title">Statistik Kurban</h2>
+                        <div id="statistikKurbanChart" class="statistik-chart">
+                            <p class="placeholder-text">Belum ada data untuk ditampilkan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">
+                        Daftar Kurban
+                        <div class="card-title-actions">
+                            <button id="printReportButton" class="btn btn-secondary">
+                                <i class="fas fa-print"></i> Cetak Laporan
+                            </button>
+                        </div>
+                    </h2>
+                    <div class="table-container">
+                        <table id="qurbanTable">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Tanggal</th>
+                                    <th>Jenis</th>
+                                    <th>Berat Total</th>
+                                    <th>Jumlah Pekurban</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <p class="loading-message" id="table-loading-message">Belum ada data kurban.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="js-taqwa-qurban.js"></script>
+</body>
+</html>
