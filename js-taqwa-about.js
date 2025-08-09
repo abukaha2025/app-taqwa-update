@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lastUpdatedDateElement = document.getElementById('lastUpdatedDate');
 
     // **Ganti dengan URL file `version.json` di repositori GitHub Anda (atau proxy)**
-    const GITHUB_VERSION_URL = 'https://raw.githubusercontent.com/abukaha2025/app-taqwa/main/version.json';
+    const GITHUB_VERSION_URL = 'https://raw.githubusercontent.com/abukaha2025/app-taqwa-update/main/version.json';
 
     let currentAppVersion = currentAppVersionElement.textContent.trim();
 
