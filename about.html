@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Aplikasi - Masjid At-Taqwa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="style-taqwa-settings.css">
+    <link rel="stylesheet" href="style-taqwa-about.css?v=1.1.0">
+</head>
+<body class="theme-default">
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo-taqwa.png" alt="Logo Masjid Raya Al taqwa" class="sidebar-logo">
+                <h2 class="sidebar-title">At-Taqwa</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="input.html" class="nav-item">
+                            <i class="fas fa-plus-circle nav-icon"></i>
+                            <span class="nav-text">Input Jadwal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="khotib-taqwa.html" class="nav-item">
+                            <i class="fas fa-users nav-icon"></i>
+                            <span class="nav-text">Jadwal Khutbah</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="statistik.html" class="nav-item">
+                            <i class="fas fa-chart-line nav-icon"></i>
+                            <span class="nav-text">Statistik</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kalender.html" class="nav-item">
+                            <i class="fas fa-calendar-alt nav-icon"></i>
+                            <span class="nav-text">Kalender Kegiatan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-item active">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span class="nav-text">Tentang</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer-info">
+                <p><center>&copy; 2025 Masjid At-Taqwa. Didesain Abu Muhammadain Mulyadi</center></p>
+            </div>
+        </aside>
+
+        <div class="main-content-wrapper">
+            <header class="main-header">
+                <button id="menuToggle" class="menu-toggle-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="header-title">Tentang Aplikasi</h1>
+                <div class="header-actions">
+                    <button id="logoutButtonHeader" class="btn btn-danger">Logout</button>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <section class="about-page">
+                    <div class="hero">
+                        <img src="logo-taqwa.png" alt="Logo Aplikasi" class="hero-logo">
+                        <h2 class="hero-title">Sistem Penjadwalan Khotib</h2>
+                        <p class="hero-version">Versi <span id="currentAppVersion">1.1.0</span></p>
+                        <p class="hero-description">Solusi modern untuk manajemen jadwal khotib Masjid At-Taqwa, dirancang untuk efisiensi dan kemudahan.</p>
+                    </div>
+
+                    <div class="tab-container">
+                        <div class="tab-buttons">
+                            <button class="tab-button active" data-tab="tab-about"><i class="fas fa-info-circle"></i> Tentang</button>
+                            <button class="tab-button" data-tab="tab-specs"><i class="fas fa-code"></i> Spesifikasi</button>
+                            <button class="tab-button" data-tab="tab-update"><i class="fas fa-sync-alt"></i> Pembaruan</button>
+                            <button class="tab-button" data-tab="tab-contact"><i class="fas fa-envelope"></i> Kontak</button>
+                        </div>
+                        
+                        <div id="tab-about" class="tab-content active">
+                            <section class="features">
+                                <h2>Fitur Utama</h2>
+                                <div class="features-grid">
+                                    <div class="feature-item">
+                                        <i class="fas fa-calendar-plus"></i>
+                                        <h3>Input Jadwal Mudah</h3>
+                                        <p>Antarmuka intuitif untuk menambahkan dan mengelola jadwal khotib dengan cepat.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-users"></i>
+                                        <h3>Manajemen Khotib</h3>
+                                        <p>Kelola daftar khotib dan informasi kontak mereka secara terpusat.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <h3>Statistik Kegiatan</h3>
+                                        <p>Dapatkan insight melalui statistik kegiatan khutbah yang terorganisir.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <h3>Kalender Terintegrasi</h3>
+                                        <p>Tampilan kalender yang memudahkan visualisasi jadwal khotbah bulanan.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-bell"></i>
+                                        <h3>Notifikasi Pengingat</h3>
+                                        <p>Sistem notifikasi untuk mengingatkan pengurus masjid tentang jadwal yang akan datang.</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-search"></i>
+                                        <h3>Pencarian Cepat</h3>
+                                        <p>Fitur pencarian untuk menemukan jadwal atau khotib tertentu dengan mudah.</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        
+                        <div id="tab-specs" class="tab-content">
+                            <section class="tech-stack">
+                                <h2>Teknologi yang Digunakan</h2>
+                                <div class="tech-icons">
+                                    <i class="fab fa-html5" title="HTML5"></i>
+                                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                                    <i class="fab fa-js-square" title="JavaScript"></i>
+                                    <i class="fab fa-github" title="GitHub"></i>
+                                    <i class="fas fa-code" title="Custom Development"></i>
+                                    <i class="fas fa-rocket" title="Modern Web Technologies"></i>
+                                </div>
+                                <p>Aplikasi ini dibangun menggunakan teknologi web modern untuk kinerja dan keandalan yang optimal.</p>
+                            </section>
+                        </div>
+                        
+                        <div id="tab-update" class="tab-content">
+                            <section class="update-info">
+                                <h2>Informasi Pembaruan</h2>
+                                <div class="update-status-container">
+                                    <p id="updateStatusMessage">Memeriksa pembaruan...</p>
+                                    <div class="progress-bar-container">
+                                        <div id="updateProgressBar" class="progress-bar"></div>
+                                    </div>
+                                    <p id="latestAppVersionInfo" class="hidden">Versi terbaru: <span id="latestVersionNumber"></span></p>
+                                    <a href="#" id="updateAppButton" class="btn btn-success hidden" target="_blank" rel="noopener noreferrer">
+                                        <i class="fas fa-download"></i> Perbarui Sekarang
+                                    </a>
+                                    <button id="checkForUpdateButton" class="btn btn-primary"><i class="fas fa-sync-alt"></i> Periksa Pembaruan</button>
+                                </div>
+                                <p class="last-updated">Data terakhir diperbarui pada: <span id="lastUpdatedDate"></span></p>
+                            </section>
+                        </div>
+                        
+                        <div id="tab-contact" class="tab-content">
+                            <section class="developer-contact">
+    <h2>Kontak Pengembang</h2>
+    <p>Dukungan dan pertanyaan teknis dapat diajukan melalui kontak di bawah ini.</p>
+    <div class="contact-methods">
+       <a href="https://wa.me/6282210006882?text=Bismillah.%20Assalamu%20alaikum%20warahmatullohi%20wabarokatuh" class="contact-link" target="_blank">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+</a>
+           
+        <a href="mailto:abukaha2025@gmail.com" class="contact-link">
+            <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="https://www.instagram.com/abumuhammadain.mulyadi" class="contact-link" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+    </div>
+    <p class="copyright">&copy; 2025 Masjid At-Taqwa HBR. Hak cipta dilindungi.</p>
+</section>                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <script src="js-taqwa-dashboard.js"></script>
+    <script src="js-taqwa-about.js"></script>
+</body>
+</html>
